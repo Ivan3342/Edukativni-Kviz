@@ -1,0 +1,124 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Koja godina se smatra godinom osnivanja srpske države pod vođstvom Stefana Nemanje?",
+      "options": [
+        "1042.",
+        "1166.",
+        "1189.",
+        "1217."
+      ],
+      "correct_answer": "1166.",
+      "explanation": "Stefan Nemanja je došao na vlast oko **1166.** godine i udario temelje nezavisne srpske države."
+    },
+    {
+      "id": 2,
+      "question": "Koji je srpski vladar krunisan za kralja 1217. godine?",
+      "options": [
+        "Stefan Nemanja",
+        "Stefan Prvovenčani",
+        "Dušan Silni",
+        "Knez Lazar"
+      ],
+      "correct_answer": "Stefan Prvovenčani",
+      "explanation": "**Stefan Prvovenčani** je krunisan za prvog srpskog kralja 1217. godine, čime je Srbija postala kraljevina."
+    },
+    {
+      "id": 3,
+      "question": "Kada se odigrala Kosovska bitka?",
+      "options": [
+        "1371.",
+        "1389.",
+        "1459.",
+        "1521."
+      ],
+      "correct_answer": "1389.",
+      "explanation": "Kosovska bitka se odigrala **15. juna 1389.** godine između srpske i osmanske vojske."
+    },
+    {
+      "id": 4,
+      "question": "Ko je predvodio Prvi srpski ustanak?",
+      "options": [
+        "Miloš Obrenović",
+        "Karađorđe Petrović",
+        "Vuk Karadžić",
+        "Knez Mihailo"
+      ],
+      "correct_answer": "Karađorđe Petrović",
+      "explanation": "**Đorđe Petrović**, poznatiji kao Karađorđe, predvodio je Prvi srpski ustanak protiv Osmanskog carstva, koji je počeo **1804.** godine."
+    },
+    {
+      "id": 5,
+      "question": "Koje godine je Srbija stekla potpunu nezavisnost na Berlinskom kongresu?",
+      "options": [
+        "1804.",
+        "1835.",
+        "1878.",
+        "1912."
+      ],
+      "correct_answer": "1878.",
+      "explanation": "Srbija je na **Berlinskom kongresu 1878.** godine, zajedno sa Crnom Gorom i Rumunijom, zvanično priznata kao nezavisna država."
+    },
+    {
+      "id": 6,
+      "question": "Ko je bio na čelu Kraljevine Jugoslavije tokom najvećeg dela njenog postojanja?",
+      "options": [
+        "Petar I Karađorđević",
+        "Aleksandar I Karađorđević",
+        "Josip Broz Tito",
+        "Knez Pavle Karađorđević"
+      ],
+      "correct_answer": "Aleksandar I Karađorđević",
+      "explanation": "Kraljevina Srba, Hrvata i Slovenaca, kasnije Kraljevina Jugoslavija, nastala je 1918. godine, a kralj **Aleksandar I Karađorđević** bio je njen vladar od 1921. do 1934. godine."
+    },
+    {
+      "id": 7,
+      "question": "Koji je grad bio prestonica srednjovekovne Srbije za vreme cara Dušana?",
+      "options": [
+        "Beograd",
+        "Niš",
+        "Skoplje",
+        "Kruševac"
+      ],
+      "correct_answer": "Skoplje",
+      "explanation": "Tokom vladavine cara Dušana, **Skoplje** je bilo prestonica srpskog carstva."
+    },
+    {
+      "id": 8,
+      "question": "Kada je izbio Drugi srpski ustanak?",
+      "options": [
+        "1804.",
+        "1813.",
+        "1815.",
+        "1826."
+      ],
+      "correct_answer": "1815.",
+      "explanation": "Drugi srpski ustanak, predvođen Milošem Obrenovićem, izbio je **1815.** godine."
+    },
+    {
+      "id": 9,
+      "question": "Kada je počeo Prvi svetski rat, u kojem je Srbija imala značajnu ulogu?",
+      "options": [
+        "1912.",
+        "1914.",
+        "1918.",
+        "1921."
+      ],
+      "correct_answer": "1914.",
+      "explanation": "Prvi svetski rat je počeo **28. jula 1914.** godine, nakon austrougarske objave rata Srbiji."
+    },
+    {
+      "id": 10,
+      "question": "Ko je bio prvi patrijarh obnovljene Pećke patrijaršije 1557. godine?",
+      "options": [
+        "Sveti Sava",
+        "Makarije Sokolović",
+        "Arsenije III Čarnojević",
+        "Dimitrije"
+      ],
+      "correct_answer": "Makarije Sokolović",
+      "explanation": "Pećka patrijaršija je obnovljena **1557.** godine, a na njenom čelu je bio patrijarh **Makarije Sokolović**."
+    }
+  ]
+}
