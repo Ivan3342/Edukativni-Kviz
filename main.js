@@ -12,6 +12,7 @@ let pitanja = [];
 let trenutniIndex = 0;
 let nasumicnaPitanja = [];
 let brojTacnih = 0;
+let timerId = null;
 
 const prikaziPitanje = (pitanje) => {
     const odgovori = [...pitanje.odgovori];
@@ -31,9 +32,42 @@ const prikaziPitanje = (pitanje) => {
         </div>
     `;
 
+    let timeLeft = 30;
+    const progressBar = kvizWrapper.querySelector("#progressBar");
+    progressBar.style.width = "100%";
+
+    const updateProgressBar = () => {
+        timeLeft--;
+        progressBar.style.width = (timeLeft / 30 * 100) + "%";
+        if (timeLeft <= 0) {
+            clearInterval(timerId);
+            timerId = null;
+            trenutniIndex++;
+            if (trenutniIndex < nasumicnaPitanja.length) {
+                prikaziPitanje(nasumicnaPitanja[trenutniIndex]);
+            } else {
+                kvizWrapper.innerHTML = `<h2>Kviz je završen! Broj tacnih: ${brojTacnih}/${pitanja.length}</h2>`;
+            }
+        }
+    };
+
+    timerId = setInterval(updateProgressBar, 1000);
+
+    const clearTimerAndNext = (callback) => {
+        if (timerId) {
+            clearInterval(timerId);
+            timerId = null;
+        }
+        setTimeout(callback, 1000);
+    };
+
     const odgovoriLista = kvizWrapper.querySelectorAll("li");
     odgovoriLista.forEach(li => {
         li.addEventListener("click", () => {
+            if (timerId) {
+                clearInterval(timerId);
+                timerId = null;
+            }
             if (li.textContent === pitanje.tacanOdgovor) {
                 li.classList.add("tacan");
                 brojTacnih++;
@@ -61,6 +95,10 @@ const prikaziPitanje = (pitanje) => {
 
     const sledecePitanjeButton = kvizWrapper.querySelector("#sledecePitanjeButton");
     sledecePitanjeButton.addEventListener("click", () => {
+        if (timerId) {
+            clearInterval(timerId);
+            timerId = null;
+        }
         trenutniIndex++;
         if (trenutniIndex < nasumicnaPitanja.length) {
             prikaziPitanje(nasumicnaPitanja[trenutniIndex]);
@@ -94,4 +132,12 @@ const fetchPitanja = async () => {
 zapocniKvizButton.addEventListener("click", () => {
     dugmeWrapper.classList.toggle("hidden");
     fetchPitanja();
+});
+
+prikaziLeaderboardButton.addEventListener("click", () => {
+    document.getElementById("leaderboard").classList.toggle("hidden");
+});
+
+document.getElementById("closeLeaderboardButton").addEventListener("click", () => {
+    document.getElementById("leaderboard").classList.toggle("hidden");
 });
