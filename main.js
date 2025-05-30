@@ -9,8 +9,6 @@ let pitanja = [];
 
 //funkcije
 
-// Funkcija za prikaz pitanja u nasumičnom redosledu
-
 let trenutniIndex = 0;
 let nasumicnaPitanja = [];
 let brojTacnih = 0;
@@ -48,6 +46,14 @@ const prikaziPitanje = (pitanje) => {
                 }, 1000);
             } else {
                 li.classList.add("netacan");
+                setTimeout(() => {
+                    trenutniIndex++;
+                    if (trenutniIndex < nasumicnaPitanja.length) {
+                        prikaziPitanje(nasumicnaPitanja[trenutniIndex]);
+                    } else {
+                        kvizWrapper.innerHTML = `<h2>Kviz je završen! Broj tacnih: ${brojTacnih}</h2>`;
+                    }
+                }, 1000);
             }
         });
     });
@@ -63,8 +69,6 @@ const prikaziPitanje = (pitanje) => {
     });
 }
 
-
-// Izmeni fetchPitanja da izmeša pitanja pre prikaza
 const fetchPitanja = async () => {
     await fetch(api).then(responese => responese.json()).then(data => {
         pitanja = data.questions.map(question => ({
@@ -74,7 +78,6 @@ const fetchPitanja = async () => {
             tacanOdgovor: question.correct_answer,
             objasnjenje: question.explanation
         }));
-        // Izmešaj pitanja
         nasumicnaPitanja = [...pitanja];
         for (let i = nasumicnaPitanja.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -87,11 +90,7 @@ const fetchPitanja = async () => {
 
 //dogadjaji
 
-document.addEventListener("DOMContentLoaded", fetchPitanja)
-
 zapocniKvizButton.addEventListener("click", () => {
     dugmeWrapper.classList.toggle("hidden");
+    fetchPitanja();
 });
-
-
-

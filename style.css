@@ -1,3 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Eagle+Lake&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+:root {
+    --charcoal: #2e5266ff;
+    --slate-gray: #6e8898ff;
+    --cadet-gray: #9fb1bcff;
+    --timberwolf: #d3d0cbff;
+    --old-gold: #e2c044ff;
+    --font-family: 'Funnel Sans', sans-serif;
+    --heading-font-family: 'Eagle Lake', cursive;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .hidden {
-    display: none; 
+    display: none;
+}
+
+body {
+    font-family: var(--font-family);
+}
+
+header {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
