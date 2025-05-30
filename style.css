@@ -205,11 +205,10 @@ header {
         margin: 0;
     }
     & li {
-        list-style: none;
         color: var(--timberwolf);
         font-family: var(--font-family);
         font-size: 1.2rem;
-        margin: 10px 0;
+        margin: 10px 10px;
     }
     & button {
         background: none;
