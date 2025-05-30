@@ -20,14 +20,127 @@
     display: none;
 }
 
+.tacan {
+    background-color: green !important;
+    color: white !important;
+}
+
+.netacan {
+    background-color: red !important;
+    color: white;
+}
+
 body {
     font-family: var(--font-family);
 }
 
 header {
+    position: fixed;
+    width: 100%;
     padding: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    & span:first-child {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    & img {
+        width: 50px;
+        height: 50px;
+    }
+    & button {
+        background-color: var(--charcoal);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition:  0.190s ease;
+        border-radius: 8px;
+
+        &:hover {
+            background-color: var(--old-gold);
+            color: black;
+        }
+        &:active {
+            background-color: var(--timberwolf);
+            color: white;
+        }
+    }
+}
+
+#kvizWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    & h1 {
+        font-family: var(--heading-font-family);
+        font-size: 3rem;
+        color: var(--charcoal);
+        margin-bottom: 20px;
+    }
+    & h2 {
+        font-family: var(--heading-font-family);
+        font-size: 2rem;
+        color: var(--slate-gray);
+        margin-bottom: 20px;
+    }
+    & button {
+        background-color: var(--charcoal);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: 0.190s ease;
+        border-radius: 8px;
+
+        &:hover {
+            background-color: var(--old-gold);
+            color: black;
+        }
+        &:active {
+            background-color: var(--timberwolf);
+            color: white;
+        }
+    }
+}
+
+.pitanje {
+    border: 1px solid var(--cadet-gray);
+    max-width: 800px;
+
+    & ul {
+        list-style: none;
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    & li {
+        background-color: var(--timberwolf);
+        padding: 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.190s ease;
+
+        &:hover {
+            background-color: var(--old-gold);
+            color: black;
+        }
+        &:active {
+            background-color: var(--cadet-gray);
+            color: white;
+        }
+    }
 }
