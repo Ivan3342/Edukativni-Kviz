@@ -5,7 +5,9 @@ const prikaziLeaderboardButton = document.getElementById("prikaziLeaderboardButt
 const zapocniKvizButton = document.getElementById("zapocniKvizButton");
 const kvizWrapper = document.getElementById("kvizWrapper");
 const dugmeWrapper = document.getElementById("dugmeWrapper");
+const unosPobednika = document.getElementById("unosPobednika");
 let pitanja = [];
+let scores = JSON.parse(localStorage.getItem("scores")) || [];
 
 //funkcije
 
@@ -13,6 +15,25 @@ let trenutniIndex = 0;
 let nasumicnaPitanja = [];
 let brojTacnih = 0;
 let timerId = null;
+
+unosPobednika.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    await unesiPobednika();
+    unosPobednika.classList.toggle("hidden");
+    document.getElementById("pobednikIme").value = "";
+});
+
+const unesiPobednika = async () => {
+    const imePobednika = document.getElementById("pobednikIme").value;
+    const scorePobednika = brojTacnih;
+    const score = {
+        name: imePobednika,
+        score: scorePobednika
+    };
+    scores.push(score);
+    scores.sort((a, b) => b.score - a.score);
+    localStorage.setItem("scores", JSON.stringify(scores));
+}
 
 const prikaziPitanje = (pitanje) => {
     const odgovori = [...pitanje.odgovori];
@@ -47,6 +68,7 @@ const prikaziPitanje = (pitanje) => {
                 prikaziPitanje(nasumicnaPitanja[trenutniIndex]);
             } else {
                 kvizWrapper.innerHTML = `<h2>Kviz je završen! Broj tacnih: ${brojTacnih}/${pitanja.length}</h2>`;
+                unosPobednika.classList.toggle("hidden");
             }
         }
     };
@@ -77,6 +99,7 @@ const prikaziPitanje = (pitanje) => {
                         prikaziPitanje(nasumicnaPitanja[trenutniIndex]);
                     } else {
                         kvizWrapper.innerHTML = `<h2>Kviz je završen! Broj tacnih: ${brojTacnih}/${pitanja.length}</h2>`;
+                        unosPobednika.classList.toggle("hidden");
                     }
                 }, 1000);
             } else {
@@ -87,6 +110,7 @@ const prikaziPitanje = (pitanje) => {
                         prikaziPitanje(nasumicnaPitanja[trenutniIndex]);
                     } else {
                         kvizWrapper.innerHTML = `<h2>Kviz je završen! Broj tacnih: ${brojTacnih}/${pitanja.length}</h2>`;
+                        unosPobednika.classList.toggle("hidden");
                     }
                 }, 1000);
             }
@@ -104,6 +128,7 @@ const prikaziPitanje = (pitanje) => {
             prikaziPitanje(nasumicnaPitanja[trenutniIndex]);
         } else {
             kvizWrapper.innerHTML = `<h2>Kviz je završen! Broj tacnih: ${brojTacnih}/${pitanja.length}</h2>`;
+            document.getElementById("unosPobednika").classList.remove("hidden");
         }
     });
 }
@@ -136,6 +161,11 @@ zapocniKvizButton.addEventListener("click", () => {
 
 prikaziLeaderboardButton.addEventListener("click", () => {
     document.getElementById("leaderboard").classList.toggle("hidden");
+    
+    document.getElementById("scores").innerHTML = scores.map(score => `<li>${score.name}: ${score.score}</li>`).join('');
+    if (scores.length === 0) {
+        document.getElementById("scores").innerHTML = "<li>Nema rezultata</li>";
+    }
 });
 
 document.getElementById("closeLeaderboardButton").addEventListener("click", () => {

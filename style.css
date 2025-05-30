@@ -136,7 +136,8 @@ header {
 }
 
 .pitanje {
-    border: 1px solid var(--cadet-gray);
+    background-color: rgb(237, 237, 237);
+    border-radius: 8px;
     min-width: 800px;
     max-width: 800px;
     padding: 20px;
@@ -175,6 +176,8 @@ header {
     width: 100%;
     height: 5px;
     background-color: var(--charcoal);
+    box-shadow: 0px 0px 5px rgb(84, 84, 84);
+    border-radius: 30px;
 }
 
 .progress {
@@ -224,6 +227,71 @@ header {
 
         &:hover {
             color: var(--old-gold);
+        }
+    }
+}
+
+form {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+
+    & input {
+        width: 300px;
+        padding: 10px;
+        border: 1px solid var(--cadet-gray);
+        border-radius: 8px;
+        font-size: 1rem;
+        font-family: var(--font-family);
+    }
+
+    & button {
+        background-color: var(--charcoal);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: 0.190s ease;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+        &:hover {
+            background-color: var(--old-gold);
+            color: black;
+        }
+
+        &:active {
+            background-color: var(--timberwolf);
+            color: white;
+        }
+    }
+}
+
+footer {
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    background-color: var(--charcoal);
+    color: white;
+    font-family: var(--font-family);
+    font-size: 0.9rem;
+
+    & a {
+        color: var(--old-gold);
+        text-decoration: none;
+        transition: color 0.2s;
+
+        &:hover {
+            color: var(--timberwolf);
         }
     }
 }
