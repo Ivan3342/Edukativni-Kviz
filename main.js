@@ -26,6 +26,7 @@ const prikaziPitanje = (pitanje) => {
             <ul>
                 ${odgovori.map((odgovor, index) => `<li class="odgovor" data-index="${index}">${odgovor}</li>`).join('')}
             </ul>
+            <div id="progressBar" class="progress"></div>
             <button id="sledecePitanjeButton">Preskoci pitanje</button>
         </div>
     `;
@@ -41,7 +42,7 @@ const prikaziPitanje = (pitanje) => {
                     if (trenutniIndex < nasumicnaPitanja.length) {
                         prikaziPitanje(nasumicnaPitanja[trenutniIndex]);
                     } else {
-                        kvizWrapper.innerHTML = `<h2>Kviz je završen! Broj tacnih: ${brojTacnih}</h2>`;
+                        kvizWrapper.innerHTML = `<h2>Kviz je završen! Broj tacnih: ${brojTacnih}/${pitanja.length}</h2>`;
                     }
                 }, 1000);
             } else {
@@ -51,7 +52,7 @@ const prikaziPitanje = (pitanje) => {
                     if (trenutniIndex < nasumicnaPitanja.length) {
                         prikaziPitanje(nasumicnaPitanja[trenutniIndex]);
                     } else {
-                        kvizWrapper.innerHTML = `<h2>Kviz je završen! Broj tacnih: ${brojTacnih}</h2>`;
+                        kvizWrapper.innerHTML = `<h2>Kviz je završen! Broj tacnih: ${brojTacnih}/${pitanja.length}</h2>`;
                     }
                 }, 1000);
             }
@@ -64,7 +65,7 @@ const prikaziPitanje = (pitanje) => {
         if (trenutniIndex < nasumicnaPitanja.length) {
             prikaziPitanje(nasumicnaPitanja[trenutniIndex]);
         } else {
-            kvizWrapper.innerHTML = `<h2>Kviz je završen! Broj tacnih: ${brojTacnih}</h2>`;
+            kvizWrapper.innerHTML = `<h2>Kviz je završen! Broj tacnih: ${brojTacnih}/${pitanja.length}</h2>`;
         }
     });
 }
